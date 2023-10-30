@@ -39,18 +39,19 @@ img {
 .navigation {
   display: flex;
   align-items: center;
+  margin-right: auto;
+
 }  
 
 .list-nav {
   display: flex;
   align-items: center;
   gap: 40px;
-  margin-right: 332px;
-  padding: 24px 0;
-  }
+   }
 
 .link {
   padding: 24px 0;
+  position: relative;
 }
 
 .logo
@@ -81,6 +82,7 @@ img {
 } 
 
 .link-nav {
+position: relative;
 font-weight: 500;
 font-size: 16px;
 line-height: 1.5;
@@ -88,7 +90,9 @@ letter-spacing: 0.02em;
 text-decoration: none;
 list-style-type: none;
 color:#2E2F42;
-padding: 24px 0 24px;
+padding: 24px 0 ;
+display: block;
+transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-nav:hover {
@@ -97,6 +101,18 @@ color: #404BBF;
                       
 .link-nav:active {
 color: #404BBF;
+}
+
+.active::after {
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 48px;
+height: 4px;
+border-radius: 2px;
+background:#404BBF;
+content:"";
+display: block;
 }
 
 .link-address {
@@ -112,6 +128,7 @@ line-height: 1.5;
 letter-spacing: 0.02em;
 color: #434455;
 text-decoration: none;
+transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-address:hover,:focus{
@@ -123,6 +140,12 @@ font-style: normal;
 }
 
 .hero {
+background-image: linear-gradient(
+  rgba(46, 47, 66, 0.7),
+  rgba(46, 47, 66, 0.7)
+    ),
+url(../images/bg/people-office\ 3.jpg);
+background-size: cover;
 background-color: #2E2F42;
 text-align:center;
 padding-top: 188px;
@@ -139,13 +162,13 @@ letter-spacing: 0.02em;
 text-align:center;
 margin-left: auto;
 margin-right: auto;
-padding-bottom: 48px;
+margin-bottom: 48px;
 }
 
 .button {
 min-width: 169px;
 height: 56px;
-background: #4D5AE5;
+background-color: #4D5AE5;
 font-weight: 500;
 font-size: 16px;
 line-height: 1.5;
@@ -157,13 +180,14 @@ border: none;
 border-radius: 4px;
 margin-left: auto;
 margin-right: auto;
+transition: background-color 5000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover {
-background: #404BBF;
+background-color: #404BBF;
 }
 .button:focus {
-background: #404BBF;
+background-color: #404BBF;
 }
 
 .visually-hidden {
@@ -188,13 +212,18 @@ background: #404BBF;
   display: flex;
   align-items:baseline;
   gap: 24px; 
-  margin-bottom: 120px;  
-}
+  }
 
 .features-list {
 width: calc((100% - 72px) / 4);
-
 }
+.pictures {
+  background-color: #F4F4FD;
+  border:  1px solid  #8E8F99;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .features-title {
 font-weight: 500;
 font-size: 20px;
@@ -231,17 +260,19 @@ margin-bottom: 72px;
   display: flex;
   align-items: center;
   gap: 24px;  
-  padding-bottom: 120px;
- }
+   }
 
 .team-member{
 background-color: #FFFFFF;
 display:block;
 border-radius: 0px 0px 4px 4px;
+border-radius: 0px 0px 4px 4px;
+background: var(--WHITE, #FFF);
+box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team-cont{
-  padding: 32px 0
+padding: 32px 0
 }
 
 .team-small-title {
@@ -262,7 +293,37 @@ color: #434455;
 text-align: center;
 }
 
-.portfolio {
+.social-icons {
+  width: 232px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 24px;
+  padding-left: 16px;
+  margin-top: 8px;
+ justify-content: center;
+align-items: center;
+}
+
+.sotial-media-ul {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4D5AE5;
+  fill: none;
+  padding: 12px;
+  stroke: #F4F4FD;
+  display: flex;
+  width: 232px;
+  justify-content: space-between;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sotial-media-ul:hover,:focus {
+    background:  #31D0AA;
+}
+
+  .portfolio {
   padding-top: 120px;
   padding-bottom: 120px;
 }
@@ -290,8 +351,34 @@ margin-bottom: 72px;
 padding: 32px 16px;
 border: 1px solid #e7e9fc;
 border-top: none;
+}
+
+.overlay{
+position: relative;
 
 }
+.overlay-text {
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0px;
+padding: 43px 32px;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0.02em;
+color: #F4F4FD;
+background-color: #4D5AE5; 
+transform: translateY(100%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+position: -1;
+}
+
+.overlay .overlay-text:hover {
+transform: translateY(0%);
+position: 1;
+}
+
 .portfolio-small-title {
 font-weight: 500;
 font-size: 20px;
@@ -314,23 +401,31 @@ color: #434455;
 padding: 100px 0;
 background-color:#2e2f42;
 }
-
-.footer-logo {
-font-family: "Raleway", sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 1.17;
-color: #4D5AE5;
-text-decoration: none;
-letter-spacing: 0.03em;
-text-transform: uppercase;
-display: inline-block;
-margin-bottom: 16px;
+.footer-container {
+display: flex;
+justify-content: start;
 }
+.footer-left {
+  width: 264px;
+  margin-right: 120px;
+}
+ .footer-logo {
+ font-family: "Raleway", sans-serif;
+ font-style: normal;
+ font-weight: 700;
+ font-size: 18px;
+ line-height: 1.17;
+ color: #4D5AE5;
+ text-decoration: none;
+ letter-spacing: 0.03em;
+ text-transform: uppercase;
+ display: inline-block;
+ margin-bottom: 16px;
+}
+
 .footer-logo-web{
-font-family: 'Raleway', sans-serif;
-font-style: normal;
+ font-family: 'Raleway', sans-serif;
+ font-style: normal;
 font-weight: 700;
 font-size: 18px;
 line-height: 1.17;
@@ -339,12 +434,52 @@ letter-spacing: 0.03em;
 text-transform: uppercase;
 color:#F4F4FD;
 margin-bottom: 16px; 
-
 }
+
 .footer-paragraf {
 font-size: 16px;
 line-height: 1.5;
 letter-spacing: 0.02em;
 color: #F4F4FD;
 width: 264px;
+}
+
+.title-footer-soc {
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0.02em;
+color: #FFFFFF;
+margin-bottom: 16px;
+}
+
+
+
+.social-icons-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  
+  }
+.social-icons-footer:hover {
+
+}
+
+.footer-ul {
+  display: flex;  
+  align-items: center;
+  text-align: center;
+  width: 208px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4D5AE5;
+  stroke: #F4F4FD;
+  display: flex;
+  justify-content: space-between; 
+  gap: 16px;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-ul:hover {
+  background:#31D0AA
 }
