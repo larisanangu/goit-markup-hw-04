@@ -402,7 +402,7 @@ height: 100%;
 top: 0px;
 font-weight: 400;
 font-size: 16px;
-line-height: 1.5px;
+line-height: 1.5;
 letter-spacing: 0.02em;
 color: #F4F4FD;
 background-color: #4D5AE5; 
